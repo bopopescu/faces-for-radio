@@ -8,15 +8,13 @@
 
     <title>{% block title %}Fixed Top Navbar Example for Bootstrap{% endblock %}</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    {% block data %}{% endblock %}
 
-    <!-- Custom styles for this template -->
   </head>
 
   <body>
 
-    <!-- Fixed navbar -->
 
     <div class="container">
 
@@ -25,9 +23,6 @@
 
     </div> <!-- /container -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/js/bootstrap.min.js"></script>
     <script src="{{ url_for('static', filename='js/faces.js') }}"></script>

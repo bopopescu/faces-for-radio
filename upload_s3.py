@@ -7,7 +7,7 @@ import time
 from sys import argv
 from boto.s3.connection import S3Connection
 from boto.s3.key import Key
-from settings import AWS_KEY, AWS_SECRET_KEY, AWS_BUCKET, PROJECT_DIRECTORY
+from settings import AWS_KEY, AWS_SECRET_KEY, AWS_BUCKET, AWS_DIRECTORY
 
 STATIC_EXPIRES = 60 * 24 * 3600
 HTML_EXPIRES = 3600
@@ -26,7 +26,8 @@ content_types = {
     '.ico': 'image/ico',
     '.csv': 'text/csv',
     '.html': 'text/html',
-    '.json': 'text/json'
+    '.json': 'text/json',
+    '.mp3': 'audio/mpeg'
 }
 
 

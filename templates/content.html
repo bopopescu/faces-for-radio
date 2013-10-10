@@ -3,6 +3,10 @@
 
 {% block description %}How well do you know your favorite VPR personalities? Take this quiz matching the voices you always hear to the faces you seldom see!{% endblock %}
 
+{% block data %}
+<script id="data" type="application/json">{{ data|safe }}</script>
+{% endblock %}
+
 {% block content %}
 <!-- Main component for a primary marketing message or call to action -->
 <div class="screen active" id="landing_screen">
@@ -11,21 +15,22 @@
     <p class="text-center"><button id="play" class="btn btn-large btn-primary">Play The Game &raquo;</button></p>
 </div>
 
-{% for color in ['green2', 'orange', 'red', 'blue', 'green'] %}
-<div class="screen {{ color }}_screen inactive" id="screen{{ loop.index }}">
-    <img class="img-responsive" src="{{ url_for('static', filename='img/faces/click_clack_m.jpg') }}">
-    <div class="btn-group-vertical">
-        <button type="button" class="answer btn btn-default">Bert &amp; Ernie</button>
-        <button type="button" class="answer btn btn-default">Click &amp; Clack</button>
-        <button type="button" class="answer btn btn-default">Simon &amp; Garfunkle</button>
+<div id="questions">
+{% for color in ['green2', 'orange', 'red', 'blue', 'green', 'green2', 'orange', 'red', 'blue', 'green'] %}
+    <div class="screen {{ color }}_screen inactive" id="screen{{ loop.index0 }}">
+        <img class="img-responsive" src="{{ url_for('static', filename='img/faces/click_clack_m.jpg') }}">
+        <div class="btn-group-vertical">
+            <button type="button" class="answer btn btn-default">Bert &amp; Ernie</button>
+            <button type="button" class="answer btn btn-default">Click &amp; Clack</button>
+            <button type="button" class="answer btn btn-default">Simon &amp; Garfunkle</button>
+        </div>
+        <p class="audio-p text-center">
+            <audio src="{{ url_for('static', filename='mp3/bob_kinzel.mp3') }}"
+                preload="auto" controls>
+            </audio>
+        </p>
     </div>
-    <p class="text-center">
-        <audio src="{{ url_for('static', filename='mp3/bob_kinzel.mp3') }}"
-            preload="auto" controls>
-            <p>Your browser does not support the audio element.</p>
-        </audio>
-    </p>
-</div>
 {% endfor %}
+</div>
 
 {% endblock %}

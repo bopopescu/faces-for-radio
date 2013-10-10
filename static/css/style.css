@@ -4077,7 +4077,7 @@ th.visible-print, td.visible-print {
 
   th.hidden-print, td.hidden-print {
     display: none !important; } }
-body, html, div.container, div.screen {
+body, html, div.container, div.screen, div#questions {
   height: 100%; }
 
 #landing_screen {
@@ -4090,9 +4090,12 @@ body, html, div.container, div.screen {
   #landing_screen .btn {
     margin-top: 50px; }
 
+div.btn-group-vertical {
+  width: 100%;
+  padding: 10% 5%; }
+
 .active {
-  position: relative;
-  left: 0; }
+  position: relative; }
 
 .inactive {
   position: relative; }
