@@ -19,6 +19,12 @@
         <button type="button" class="answer btn btn-default">Click &amp; Clack</button>
         <button type="button" class="answer btn btn-default">Simon &amp; Garfunkle</button>
     </div>
+    <p class="text-center">
+        <audio src="{{ url_for('static', filename='mp3/bob_kinzel.mp3') }}"
+            preload="auto" controls>
+            <p>Your browser does not support the audio element.</p>
+        </audio>
+    </p>
 </div>
 {% endfor %}
 
