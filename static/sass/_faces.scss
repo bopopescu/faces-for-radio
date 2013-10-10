@@ -1,0 +1,53 @@
+$green: #509e2f;
+$green2: #b5bd00;
+$black: #3f4444;
+$orange: #ed8b00;
+$red: #e04e39;
+$gray: #75787b;
+$blue: #307fe2;
+
+body, html, div.container, div.screen {
+    height: 100%;
+}
+
+#landing_screen {
+    padding: 20px;
+    h1 {
+        font-size: 22px;
+        color: white;
+        text-align: center;
+    }
+    background-color: lighten($green, 5%);
+    .btn {
+        margin-top: 50px;
+    }
+}
+
+.active {
+    position: relative;
+    left: 0;
+}
+
+.inactive {
+    position: relative;
+}
+
+.green2_screen {
+    background: $green2;
+}
+
+.orange_screen {
+    background: $orange;
+}
+
+.red_screen {
+    background: $red;
+}
+
+.blue_screen {
+    background: $blue;
+}
+
+.green_screen {
+    background: $green;
+}

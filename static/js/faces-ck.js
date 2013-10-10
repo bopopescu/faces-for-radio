@@ -1,0 +1,1 @@
+$(document).ready(function(){$("button#play").on("click",function(e){var t=$(this).parents("#landing_screen");t.slideToggle()});$("button.answer").on("click",function(e){var t=$(this).parents("div.screen");t.slideToggle()})});
