@@ -8,19 +8,43 @@ $blue: #307fe2;
 
 body, html, div.container, div.screen, div#questions {
     height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body, html {
+    background: lighten($green, 5%);
 }
 
 #landing_screen {
-    padding: 20px;
     h1 {
-        font-size: 22px;
+        padding: 10% 0 10%;
+        font-family: 'Slackey';
+        height: 60%;
+        font-size: 60px;
+        font-weight: 400;
         color: white;
         text-align: center;
     }
     background-color: lighten($green, 5%);
+    #play_game {
+        font-family: 'Krona One';
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-size: 22px;
+        height: 30%;
+    }
     .btn {
         margin-top: 50px;
     }
+}
+
+div.screen {
+    height: 100%;
+    padding: 5% 0 10%;
+    position: static;
+    top: 0;
 }
 
 div.btn-group-vertical {
