@@ -10,14 +10,18 @@ body, html, div.container, div.screen, div#questions {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    font-family: 'Numans';
+    font-family: 'Krona One';
+}
+
+div.container {
+    padding: 0;
 }
 
 body, html {
-    background: lighten($green, 5%);
 }
 
 #landing_screen {
+    background: lighten($green, 5%);
     h1 {
         margin: 0;
         padding: 10% 0 10%;
@@ -35,8 +39,7 @@ body, html {
         text-align: center;
         color: white;
         font-size: 22px;
-        height: 30%;
-        padding: 15% 0;
+        padding: 30% 0;
         margin: 0;
     }
     .btn {
@@ -44,17 +47,45 @@ body, html {
     }
 }
 
+audio {
+}
+
 div.screen {
+    background: $gray;
     height: 100%;
     padding: 0 0 10%;
     position: static;
     top: 0;
-    p.image-frame {
-        margin: 0;
-        height: 40%;
-        background: black;
+    img.img-responsive {
+        padding: 0;
+    }
+    .image-frame {
+        margin: 0 !important;
+    }
+    .score-bar {
+        text-align: center;
+        text-shadow: 1px 1px lighten($black, 10%);
+        p {
+            margin: 0;
+            line-height: 1.2em;
+        }
+        hr {
+            margin: 10px 0;
+        }
+        padding: 0;
+        padding: 2% 0 0;
+        color: white;
+        font-size: 10px;
+        font-weight: 300;
+        .glyphicon {
+            font-size: 40px;
+            color: white;
+        }
+        #score {
+            font-size: 24px;
+        }
         img {
-            max-height: 100%;
+            padding-top: 5%;
         }
     }
 }

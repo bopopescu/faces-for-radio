@@ -1,13 +1,15 @@
 import json
 import glob
 import os
+import Image
+import ImageOps
 
-male_answers = ['testA', 'testB', 'testC', 'testD']
-female_answers = ['test1', 'test2', 'test3', 'test4']
+male_answers = ['Bill Clinton', 'Pierce Brosnan', 'Ira Glass', 'Jose Canseco']
+female_answers = ['Barbera Walters', 'Nina Keck', 'Charlotte Albright', 'Dina Temple Whoever']
 
 
 def generate_json():
-    face_list = glob.glob('static/img/faces/*.jpg')
+    face_list = glob.glob('static/img/faces/thumbnails/*.jpg')
     json_list = []
     for face in face_list:
         json_dict = {}
@@ -33,5 +35,19 @@ def generate_json():
         json_list.append(json_dict)
     json_faces = json.dumps(json_list)
     return json_faces
+
+
+def create_thumbnails():
+    photo_list = glob.glob('static/img/faces/*.jpg')
+    size = 600, 480
+
+    for picture in photo_list:
+        f = os.path.split(picture)[1]
+        thumbnail_path = 'static/img/faces/thumbnails/'
+        filename, ext = os.path.splitext(f)
+        image = Image.open(picture)
+        im = ImageOps.fit(image, size, Image.ANTIALIAS)
+        im.save(thumbnail_path + filename + ext, optimize=True, quality=75)
+        print filename
 
 generate_json()

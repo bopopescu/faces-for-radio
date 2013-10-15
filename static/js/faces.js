@@ -32,8 +32,7 @@ $(document).ready( function() {
 
     for (var i=0; i<data.length; i++) {
         var img= questionList.eq(i)
-            .children('p.text-center').eq(0).children('img');
-        console.log(img);
+            .children('div.image-frame').eq(0).children('img');
         var audio = questionList.eq(i).children('p.audio-p').children('audio');
         var buttonList = questionList.eq(i).children('.btn-group-vertical')
             .children('button');
@@ -57,7 +56,12 @@ $(document).ready( function() {
 
     $('button.correct').on('click', function(e) {
         facesMadeForRadio += 10;
-        console.log(facesMadeForRadio);
+        $('p#score').text(facesMadeForRadio);
+    });
+
+    $('span.glyphicon').on('click', function(e) {
+        facesMadeForRadio += -2;
+        $('p#score').text(facesMadeForRadio);
     });
 
 });
