@@ -1,6 +1,12 @@
 $(document).ready( function() {
     facesMadeForRadio = 0;
 
+    function toTitleCase(str) {
+        return str.replace(/\w\S*/g, function(txt){
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    }
+
     function shuffleArray(array) {
         for (var i = array.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
@@ -25,7 +31,9 @@ $(document).ready( function() {
     var questionList = $('div#questions').children();
 
     for (var i=0; i<data.length; i++) {
-        var img= questionList.eq(i).children('img');
+        var img= questionList.eq(i)
+            .children('p.text-center').eq(0).children('img');
+        console.log(img);
         var audio = questionList.eq(i).children('p.audio-p').children('audio');
         var buttonList = questionList.eq(i).children('.btn-group-vertical')
             .children('button');
@@ -35,7 +43,7 @@ $(document).ready( function() {
 
 
         for (var j=0; j<buttonList.length; j++) {
-            buttonList.eq(j).text(answers[j]);
+            buttonList.eq(j).text(toTitleCase(answers[j]));
             if (answers[j] == data[i].name) {
                 var correctAnswer = buttonList.eq(j).attr('class');
                 buttonList.eq(j).attr('class', correctAnswer + ' correct');

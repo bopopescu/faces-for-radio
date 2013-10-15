@@ -17,7 +17,7 @@
 <div id="questions">
 {% for color in ['green2', 'orange', 'red', 'blue', 'green', 'green2', 'orange', 'red', 'blue', 'green'] %}
     <div class="screen {{ color }}_screen inactive" id="screen{{ loop.index0 }}">
-        <img class="img-responsive" src="{{ url_for('static', filename='img/faces/click_clack_m.jpg') }}">
+        <p class="image-frame text-center"><img class="img-responsive" src="{{ url_for('static', filename='img/faces/click_clack_m.jpg') }}"></p>
         <div class="btn-group-vertical">
             <button type="button" class="answer btn btn-default">Bert &amp; Ernie</button>
             <button type="button" class="answer btn btn-default">Click &amp; Clack</button>

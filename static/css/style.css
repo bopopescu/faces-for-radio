@@ -4080,7 +4080,8 @@ th.visible-print, td.visible-print {
 body, html, div.container, div.screen, div#questions {
   height: 100%;
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  font-family: 'Numans'; }
 
 body, html {
   background: #5ab235; }
@@ -4088,9 +4089,10 @@ body, html {
 #landing_screen {
   background-color: #5ab235; }
   #landing_screen h1 {
+    margin: 0;
     padding: 10% 0 10%;
     font-family: 'Slackey';
-    height: 60%;
+    height: 70%;
     font-size: 60px;
     font-weight: 400;
     color: white;
@@ -4101,19 +4103,38 @@ body, html {
     text-align: center;
     color: white;
     font-size: 22px;
-    height: 30%; }
+    height: 30%;
+    padding: 15% 0;
+    margin: 0; }
   #landing_screen .btn {
     margin-top: 50px; }
 
 div.screen {
   height: 100%;
-  padding: 5% 0 10%;
+  padding: 0 0 10%;
   position: static;
   top: 0; }
+  div.screen p.image-frame {
+    margin: 0;
+    height: 40%;
+    background: black; }
+    div.screen p.image-frame img {
+      max-height: 100%; }
 
 div.btn-group-vertical {
   width: 100%;
-  padding: 10% 5%; }
+  padding-bottom: 10%;
+  color: white; }
+  div.btn-group-vertical .btn {
+    color: white;
+    font-size: 22px;
+    border: none;
+    border-radius: 0 !important;
+    background: #e04e39; }
+    div.btn-group-vertical .btn:first-child {
+      background: #ed8b00; }
+    div.btn-group-vertical .btn:last-child {
+      background: #307fe2; }
 
 .active {
   position: relative; }
@@ -4121,17 +4142,24 @@ div.btn-group-vertical {
 .inactive {
   position: relative; }
 
+/*
 .green2_screen {
-  background: #b5bd00; }
+    background: $green2;
+}
 
 .orange_screen {
-  background: #ed8b00; }
+    background: $orange;
+}
 
 .red_screen {
-  background: #e04e39; }
+    background: $red;
+}
 
 .blue_screen {
-  background: #307fe2; }
+    background: $blue;
+}
 
 .green_screen {
-  background: #509e2f; }
+    background: $green;
+}
+*/
