@@ -32,7 +32,6 @@ body, html {
         color: white;
         text-align: center;
     }
-    background-color: lighten($green, 5%);
     #play_game {
         font-family: 'Krona One';
         width: 100%;
@@ -51,7 +50,7 @@ audio {
 }
 
 div.screen {
-    background: $gray;
+    background: $green;
     height: 100%;
     padding: 0 0 10%;
     position: static;
@@ -61,25 +60,28 @@ div.screen {
     }
     .image-frame {
         margin: 0 !important;
+        background: $black;
     }
     .score-bar {
+        height: 100%;
+        background: $black;
         text-align: center;
         text-shadow: 1px 1px lighten($black, 10%);
+        padding: 2% 0 0;
+        color: lighten($gray, 50%);
+        font-size: 10px;
+        font-weight: 300;
+        span.glyphicon {
+            color: lighten($gray, 40%);
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
         p {
             margin: 0;
             line-height: 1.2em;
         }
         hr {
             margin: 10px 0;
-        }
-        padding: 0;
-        padding: 2% 0 0;
-        color: white;
-        font-size: 10px;
-        font-weight: 300;
-        .glyphicon {
-            font-size: 40px;
-            color: white;
         }
         #score {
             font-size: 24px;
@@ -88,23 +90,31 @@ div.screen {
             padding-top: 5%;
         }
     }
+    #camels_hump {
+        height: 100%;
+        background-image: url('../img/camels_hump.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
 }
 
 div.btn-group-vertical {
     width: 100%;
-    padding-bottom: 10%;
     color: white;
-    .btn {
+    font-family: 'Helvetica Neue';
+    button.btn {
+        font-weight: 300;
+        height: 44px;
         color: white;
         font-size: 22px;
-        border: none;
+        border: none !important;
         border-radius: 0 !important;
         background: $red;
         &:first-child {
-            background: $orange;
+            background: $blue;
         }
         &:last-child {
-            background: $blue;
+            background: $orange;
         }
     }
 }

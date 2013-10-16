@@ -25,10 +25,10 @@
                 <hr>
                 <p>Audio Hint</p>
                 <a class="audio_play" onclick="this.firstChild.play()"><audio src="{{ url_for('static', filename='mp3/bob_kinzel.mp3') }}"></audio><span class="glyphicon glyphicon-play"></span></a>
-                </p>-2 pts</p>
+                </p>[-2 pts]</p>
                 <hr>
                 <p>Built by</p>
-                <img class="img-responsive" src="{{ url_for('static', filename='img/vpr-logo.png') }}">
+                <a href="http://www.vpr.net"><img class="img-responsive" src="{{ url_for('static', filename='img/vpr-logo.png') }}"></a>
             </div>
 
         </div>
@@ -37,6 +37,7 @@
             <button type="button" class="answer btn btn-default">Click &amp; Clack</button>
             <button type="button" class="answer btn btn-default">Simon &amp; Garfunkle</button>
         </div>
+        <div id="camels_hump"></div>
     </div>
 {% endfor %}
 </div>

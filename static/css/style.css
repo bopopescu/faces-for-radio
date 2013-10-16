@@ -8,8 +8,7 @@ div.container {
   padding: 0; }
 
 #landing_screen {
-  background: #5ab235;
-  background-color: #5ab235; }
+  background: #5ab235; }
   #landing_screen h1 {
     margin: 0;
     padding: 10% 0 10%;
@@ -31,7 +30,7 @@ div.container {
     margin-top: 50px; }
 
 div.screen {
-  background: #75787b;
+  background: #509e2f;
   height: 100%;
   padding: 0 0 10%;
   position: static;
@@ -39,42 +38,52 @@ div.screen {
   div.screen img.img-responsive {
     padding: 0; }
   div.screen .image-frame {
-    margin: 0 !important; }
+    margin: 0 !important;
+    background: #3f4444; }
   div.screen .score-bar {
+    height: 100%;
+    background: #3f4444;
     text-align: center;
     text-shadow: 1px 1px #585e5e;
-    padding: 0;
     padding: 2% 0 0;
-    color: white;
+    color: #f7f8f8;
     font-size: 10px;
     font-weight: 300; }
+    div.screen .score-bar span.glyphicon {
+      color: #dddedf;
+      font-size: 40px;
+      margin-bottom: 10px; }
     div.screen .score-bar p {
       margin: 0;
       line-height: 1.2em; }
     div.screen .score-bar hr {
       margin: 10px 0; }
-    div.screen .score-bar .glyphicon {
-      font-size: 40px;
-      color: white; }
     div.screen .score-bar #score {
       font-size: 24px; }
     div.screen .score-bar img {
       padding-top: 5%; }
+  div.screen #camels_hump {
+    height: 100%;
+    background-image: url("../img/camels_hump.png");
+    background-size: 100%;
+    background-repeat: no-repeat; }
 
 div.btn-group-vertical {
   width: 100%;
-  padding-bottom: 10%;
-  color: white; }
-  div.btn-group-vertical .btn {
+  color: white;
+  font-family: 'Helvetica Neue'; }
+  div.btn-group-vertical button.btn {
+    font-weight: 300;
+    height: 44px;
     color: white;
     font-size: 22px;
-    border: none;
+    border: none !important;
     border-radius: 0 !important;
     background: #e04e39; }
-    div.btn-group-vertical .btn:first-child {
-      background: #ed8b00; }
-    div.btn-group-vertical .btn:last-child {
+    div.btn-group-vertical button.btn:first-child {
       background: #307fe2; }
+    div.btn-group-vertical button.btn:last-child {
+      background: #ed8b00; }
 
 .active {
   position: relative; }
