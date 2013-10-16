@@ -46,20 +46,14 @@ $(document).ready( function() {
         activeScreen.children('.btn-group-vertical')
             .transition({x: '-100%', delay: 600});
 
-        /*screen.find('.correct').fadeOut(200, function() {
-            var bg = $(this).css('background');
-            $(this).css('background', '#509e2f').fadeIn(200);
-            $(this).fadeOut(200, function() {
-                $(this).css('background', bg).fadeIn(500);
-            });
-            console.log(activeScreen);
-            $(this).siblings().children()
-                .transition({x: '-100%'}, 500, 'snap');
-            $(this).children()
-                .transition({x: '-100%', delay: 1000}, 500, 'snap');
-            activeScreen.find('img').transition({x: '-120%'});
-        });
-        */
+        console.log(activeScreen.attr('id'));
+        if (!activeScreen.attr('id')) {
+            console.log($('div.btn-group-vertical'));
+            $('div.image-frame').transition({y: '-100%'});
+            $('div.btn-group-vertical').transition({y: '-400%'});
+            $('div.camels_hump').transition({y: '-43%'});
+        }
+
     });
 
     var questionList = $('div#questions').children();

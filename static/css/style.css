@@ -2,7 +2,7 @@ body, html, div.container, div.screen, div#questions {
   height: 100%;
   width: 100%;
   font-family: 'Krona One';
-  background: #509e2f; }
+  background: #5ab235; }
 
 div.container {
   padding: 0; }
@@ -31,7 +31,6 @@ div.container {
     margin-top: 50px; }
 
 div.screen {
-  background: #509e2f;
   height: 100%;
   padding: 0 0 10%;
   position: static;
@@ -66,7 +65,7 @@ div.screen {
       font-size: 24px; }
     div.screen .score-bar img {
       padding-top: 5%; }
-  div.screen #camels_hump {
+  div.screen .camels_hump {
     height: 100%;
     background-image: url("../img/camels_hump.png");
     background-size: 100%;

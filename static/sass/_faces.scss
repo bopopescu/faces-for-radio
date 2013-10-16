@@ -12,7 +12,7 @@ body, html, div.container, div.screen, div#questions {
     width: 100%;
     //overflow: hidden;
     font-family: 'Krona One';
-    background: $green;
+    background: lighten($green, 5%);
 }
 
 div.container {
@@ -53,7 +53,6 @@ audio {
 }
 
 div.screen {
-    background: $green;
     height: 100%;
     padding: 0 0 10%;
     position: static;
@@ -96,7 +95,7 @@ div.screen {
             padding-top: 5%;
         }
     }
-    #camels_hump {
+    .camels_hump {
         height: 100%;
         background-image: url('../img/camels_hump.png');
         background-size: 100%;
