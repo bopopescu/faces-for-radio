@@ -5,12 +5,14 @@ $orange: #ed8b00;
 $red: #e04e39;
 $gray: #75787b;
 $blue: #307fe2;
+$purple: #9724e0;
 
 body, html, div.container, div.screen, div#questions {
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    //overflow: hidden;
     font-family: 'Krona One';
+    background: $green;
 }
 
 div.container {
@@ -21,6 +23,7 @@ body, html {
 }
 
 #landing_screen {
+    z-index: 10;
     background: lighten($green, 5%);
     h1 {
         margin: 0;
@@ -57,12 +60,14 @@ div.screen {
     top: 0;
     img.img-responsive {
         padding: 0;
+        z-index: 5;
     }
     .image-frame {
         margin: 0 !important;
         background: $black;
     }
     .score-bar {
+        z-index: 10000;
         height: 100%;
         background: $black;
         text-align: center;
@@ -81,7 +86,8 @@ div.screen {
             line-height: 1.2em;
         }
         hr {
-            margin: 10px 0;
+            margin: 8px 0;
+            border-color: lighten($gray, 10%);
         }
         #score {
             font-size: 24px;
@@ -96,6 +102,12 @@ div.screen {
         background-size: 100%;
         background-repeat: no-repeat;
     }
+    @media (max-height: 410px) {
+        #camels_hump {
+            padding-top: 20px;
+            background: $blue;
+        }
+    }
 }
 
 div.btn-group-vertical {
@@ -107,26 +119,30 @@ div.btn-group-vertical {
         height: 44px;
         color: white;
         font-size: 22px;
-        border: none !important;
         border-radius: 0 !important;
-        background: $red;
+        border-left: none;
+        border-right: none;
+        border: none;
+        //background: lighten($gray, 60%);
+        background: $purple;
         &:first-child {
-            background: $blue;
+            background: $orange;
         }
         &:last-child {
-            background: $orange;
+            background: $red;
+        }
+        div {
+            height: 100%;
+            width: 100%;
         }
     }
 }
 
-.active {
-    position: relative;
+#questions div.screen {
+    position: absolute;
+    top: 0;
+    left: 100%;
 }
-
-.inactive {
-    position: relative;
-}
-
 /*
 .green2_screen {
     background: $green2;

@@ -1,13 +1,14 @@
 body, html, div.container, div.screen, div#questions {
   height: 100%;
   width: 100%;
-  overflow: hidden;
-  font-family: 'Krona One'; }
+  font-family: 'Krona One';
+  background: #509e2f; }
 
 div.container {
   padding: 0; }
 
 #landing_screen {
+  z-index: 10;
   background: #5ab235; }
   #landing_screen h1 {
     margin: 0;
@@ -36,11 +37,13 @@ div.screen {
   position: static;
   top: 0; }
   div.screen img.img-responsive {
-    padding: 0; }
+    padding: 0;
+    z-index: 5; }
   div.screen .image-frame {
     margin: 0 !important;
     background: #3f4444; }
   div.screen .score-bar {
+    z-index: 10000;
     height: 100%;
     background: #3f4444;
     text-align: center;
@@ -57,7 +60,8 @@ div.screen {
       margin: 0;
       line-height: 1.2em; }
     div.screen .score-bar hr {
-      margin: 10px 0; }
+      margin: 8px 0;
+      border-color: #8f9294; }
     div.screen .score-bar #score {
       font-size: 24px; }
     div.screen .score-bar img {
@@ -67,6 +71,10 @@ div.screen {
     background-image: url("../img/camels_hump.png");
     background-size: 100%;
     background-repeat: no-repeat; }
+  @media (max-height: 410px) {
+    div.screen #camels_hump {
+      padding-top: 20px;
+      background: #307fe2; } }
 
 div.btn-group-vertical {
   width: 100%;
@@ -77,19 +85,23 @@ div.btn-group-vertical {
     height: 44px;
     color: white;
     font-size: 22px;
-    border: none !important;
     border-radius: 0 !important;
-    background: #e04e39; }
+    border-left: none;
+    border-right: none;
+    border: none;
+    background: #9724e0; }
     div.btn-group-vertical button.btn:first-child {
-      background: #307fe2; }
-    div.btn-group-vertical button.btn:last-child {
       background: #ed8b00; }
+    div.btn-group-vertical button.btn:last-child {
+      background: #e04e39; }
+    div.btn-group-vertical button.btn div {
+      height: 100%;
+      width: 100%; }
 
-.active {
-  position: relative; }
-
-.inactive {
-  position: relative; }
+#questions div.screen {
+  position: absolute;
+  top: 0;
+  left: 100%; }
 
 /*
 .green2_screen {

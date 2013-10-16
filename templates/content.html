@@ -16,7 +16,7 @@
 
 <div id="questions">
 {% for color in ['green2', 'orange', 'red', 'blue', 'green', 'green2', 'orange', 'red', 'blue', 'green'] %}
-    <div class="screen {{ color }}_screen inactive" id="screen{{ loop.index0 }}">
+    <div class="screen inactive" id="screen{{ loop.index0 }}">
         <div class="row image-frame">
             <img class="img-responsive col-xs-10" src="{{ url_for('static', filename='img/faces/click_clack_m.jpg') }}">
             <div class="score-bar col-xs-2">
@@ -33,9 +33,9 @@
 
         </div>
         <div class="btn-group-vertical">
-            <button type="button" class="answer btn btn-default">Bert &amp; Ernie</button>
-            <button type="button" class="answer btn btn-default">Click &amp; Clack</button>
-            <button type="button" class="answer btn btn-default">Simon &amp; Garfunkle</button>
+            <button type="button" class="answer btn btn-default"><span>Bert &amp; Ernie</span></button>
+            <button type="button" class="answer btn btn-default"><span>Click &amp; Clack</span></button>
+            <button type="button" class="answer btn btn-default"><span>Simon &amp; Garfunkle</span></button>
         </div>
         <div id="camels_hump"></div>
     </div>

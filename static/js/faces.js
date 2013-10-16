@@ -21,11 +21,45 @@ $(document).ready( function() {
 
     $('#play_game').on('click', function(e) {
         var landingScreen = $(this).parents('#landing_screen');
-        landingScreen.slideToggle();
+        landingScreen.attr("class", "dead");
+        landingScreen.transition({ x: '-100%'});
+        var firstScreen = $('div#screen0');
+        firstScreen.transition({x: '-100%'});
+        firstScreen.attr("class", "screen active");
     });
+
     $('button.answer').on('click', function(e) {
         var screen = $(this).parents('div.screen');
-        screen.slideToggle();
+        screen.attr("class", "screen inactive");
+        var activeScreen = screen.next();
+        activeScreen.attr("class", "screen active");
+
+        var correctAnswer = $(this).parent().children('.correct');
+        var incorrectAnswers = correctAnswer.siblings();
+        incorrectAnswers.children().transition({x: '-100%'}, 500, 'snap');
+        correctAnswer.children().transition({
+            x: '-100%', delay: 500 }, 500, 'snap');
+
+        activeScreen.children('div.image-frame')
+            .children('img').transition({x: '-120%', delay: 500});
+
+        activeScreen.children('.btn-group-vertical')
+            .transition({x: '-100%', delay: 600});
+
+        /*screen.find('.correct').fadeOut(200, function() {
+            var bg = $(this).css('background');
+            $(this).css('background', '#509e2f').fadeIn(200);
+            $(this).fadeOut(200, function() {
+                $(this).css('background', bg).fadeIn(500);
+            });
+            console.log(activeScreen);
+            $(this).siblings().children()
+                .transition({x: '-100%'}, 500, 'snap');
+            $(this).children()
+                .transition({x: '-100%', delay: 1000}, 500, 'snap');
+            activeScreen.find('img').transition({x: '-120%'});
+        });
+        */
     });
 
     var questionList = $('div#questions').children();
@@ -42,7 +76,7 @@ $(document).ready( function() {
 
 
         for (var j=0; j<buttonList.length; j++) {
-            buttonList.eq(j).text(toTitleCase(answers[j]));
+            buttonList.eq(j).html("<div>" + toTitleCase(answers[j]) + "</div>");
             if (answers[j] == data[i].name) {
                 var correctAnswer = buttonList.eq(j).attr('class');
                 buttonList.eq(j).attr('class', correctAnswer + ' correct');
