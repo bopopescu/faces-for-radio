@@ -42,7 +42,7 @@ div.screen {
     padding: 0;
     z-index: 5; }
   div.screen .image-frame {
-    margin: 0 !important;
+    margin: 0;
     background: #3f4444; }
   div.screen .score-bar {
     z-index: 10000;
@@ -55,7 +55,7 @@ div.screen {
     font-size: 10px;
     font-weight: 300; }
     div.screen .score-bar span.glyphicon {
-      color: #dddedf;
+      color: #f7f8f8;
       font-size: 40px;
       margin-bottom: 10px; }
     div.screen .score-bar p {
@@ -68,7 +68,7 @@ div.screen {
       font-size: 24px; }
     div.screen .score-bar img {
       padding-top: 5%; }
-  div.screen .camels_hump {
+  div.screen:first-child .camels_hump {
     height: 100%;
     background-image: url("../img/camels_hump.png");
     background-size: 100%;
@@ -100,6 +100,10 @@ div.btn-group-vertical {
     div.btn-group-vertical button.btn div {
       height: 100%;
       width: 100%; }
+
+#questions {
+  position: absolute;
+  top: 0; }
 
 #questions div.screen {
   position: absolute;

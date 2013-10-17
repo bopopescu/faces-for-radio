@@ -30,23 +30,23 @@ $(document).ready( function() {
 
     $('button.answer').on('click', function(e) {
         var screen = $(this).parents('div.screen');
-        screen.attr("class", "screen inactive");
-        var activeScreen = screen.next();
-        activeScreen.attr("class", "screen active");
+        screen.addClass("inactive");
+        var nextScreen = screen.next();
+        nextScreen.attr("class", "screen active");
 
-        var correctAnswer = $(this).parent().children('.correct');
-        var incorrectAnswers = correctAnswer.siblings();
-        incorrectAnswers.children().transition({x: '-100%'}, 500, 'snap');
-        correctAnswer.children().transition({
+        var correctAnswer = $(this).parent().children('.correct').children(),
+            incorrectAnswers = $(this).parent().children(':not(.correct)').children();
+        incorrectAnswers.transition({x: '-100%'}, 500, 'snap');
+        correctAnswer.transition({
             x: '-100%', delay: 500 }, 500, 'snap');
 
-        activeScreen.children('div.image-frame')
-            .children('img').transition({x: '-120%', delay: 500});
+        nextScreen.children('div.image-frame').children('img')
+            .transition({x: '-120%', delay: 500});
 
-        activeScreen.children('.btn-group-vertical')
+        nextScreen.children('.btn-group-vertical')
             .transition({x: '-100%', delay: 600});
 
-        if (!activeScreen.attr('id')) {
+        if (!nextScreen.attr('id')) {
             var height = $('div.image-frame').outerHeight() + $('div.btn-group-vertical').outerHeight();
             $('#questions').transition({y: -height}, 1000, 'snap');
         }
