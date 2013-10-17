@@ -5,9 +5,11 @@ body, html, div.container, div.screen, div#questions {
   background: #5ab235; }
 
 div.container {
-  padding: 0; }
+  padding: 0;
+  background: none;
+  height: inherit; }
 
-body, html {
+body, html, div.container {
   overflow: hidden; }
 
 #landing_screen {
@@ -39,13 +41,11 @@ div.screen {
   position: absolute;
   top: 0; }
   div.screen img.img-responsive {
-    padding: 0;
-    z-index: 5; }
+    padding: 0; }
   div.screen .image-frame {
     margin: 0;
     background: #3f4444; }
   div.screen .score-bar {
-    z-index: 10000;
     height: 100%;
     background: #3f4444;
     text-align: center;
@@ -73,10 +73,39 @@ div.screen {
     background-image: url("../img/camels_hump.png");
     background-size: 100%;
     background-repeat: no-repeat; }
-  @media (max-height: 410px) {
-    div.screen #camels_hump {
-      padding-top: 20px;
-      background: #307fe2; } }
+    @media (max-height: 400px) {
+      div.screen:first-child .camels_hump {
+        position: relative;
+        top: -2px; } }
+    div.screen:first-child .camels_hump #scoreboard {
+      position: relative;
+      display: none;
+      padding-top: 50%; }
+      div.screen:first-child .camels_hump #scoreboard h2 {
+        font-family: 'Slackey';
+        font-size: 24px;
+        text-align: center;
+        color: white;
+        padding-bottom: 20px; }
+      div.screen:first-child .camels_hump #scoreboard #score {
+        color: #3f4444;
+        line-height: 1em;
+        font-size: 18px;
+        padding-left: 5%;
+        padding-right: 5%;
+        text-align: center; }
+        div.screen:first-child .camels_hump #scoreboard #score p {
+          padding-bottom: 10px; }
+        div.screen:first-child .camels_hump #scoreboard #score a {
+          color: #3f4444;
+          line-height: 1.5em;
+          border-bottom: 2px solid #5c5e61; }
+          div.screen:first-child .camels_hump #scoreboard #score a:hover {
+            text-decoration: none;
+            border-bottom: 2px solid #2a2b2d; }
+        div.screen:first-child .camels_hump #scoreboard #score #your_score {
+          color: #c7341f;
+          font-size: 28px; }
 
 div.btn-group-vertical {
   background: #307fe2;
@@ -84,14 +113,13 @@ div.btn-group-vertical {
   color: white;
   font-family: 'Helvetica Neue'; }
   div.btn-group-vertical button.btn {
+    margin: 0;
     font-weight: 300;
     height: 44px;
     color: white;
     font-size: 22px;
     border-radius: 0 !important;
-    border-left: none;
-    border-right: none;
-    border: none;
+    border: none !important;
     background: #9724e0; }
     div.btn-group-vertical button.btn:first-child {
       background: #ed8b00; }
@@ -100,8 +128,12 @@ div.btn-group-vertical {
     div.btn-group-vertical button.btn div {
       height: 100%;
       width: 100%; }
+  @media (max-height: 400px) {
+    div.btn-group-vertical {
+      padding-bottom: 50px; } }
 
 #questions {
+  height: 100%;
   position: absolute;
   top: 0; }
 

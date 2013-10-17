@@ -20,6 +20,12 @@ def index():
     data = generate_json()
     return render_template('content.html', data=data)
 
+
+@app.route('/play')
+def play():
+    data = generate_json()
+    return render_template('content.html', data=data)
+
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
         freezer.freeze()

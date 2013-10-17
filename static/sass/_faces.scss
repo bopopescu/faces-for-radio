@@ -16,9 +16,11 @@ body, html, div.container, div.screen, div#questions {
 
 div.container {
     padding: 0;
+    background: none;
+    height: inherit;
 }
 
-body, html {
+body, html, div.container {
     overflow: hidden;
 }
 
@@ -59,14 +61,12 @@ div.screen {
     top: 0;
     img.img-responsive {
         padding: 0;
-        z-index: 5;
     }
     .image-frame {
         margin: 0;
         background: $black;
     }
     .score-bar {
-        z-index: 10000;
         height: 100%;
         background: $black;
         text-align: center;
@@ -100,13 +100,50 @@ div.screen {
         background-image: url('../img/camels_hump.png');
         background-size: 100%;
         background-repeat: no-repeat;
-    }
-    @media (max-height: 410px) {
-        #camels_hump {
-            padding-top: 20px;
-            background: $blue;
+        @media (max-height: 400px) {
+            position: relative;
+            top: -2px;
+        }
+        #scoreboard {
+            position: relative;
+            display: none;
+            padding-top: 50%;
+            h2 {
+                font-family: 'Slackey';
+                font-size: 24px;
+                text-align: center;
+                color: white;
+                padding-bottom: 20px;
+            }
+            #score {
+                color: $black;
+                line-height: 1em;
+                font-size: 18px;
+                padding-left: 5%;
+                padding-right: 5%;
+                text-align: center;
+                p {
+                    padding-bottom: 10px;
+                }
+                a {
+                    color: $black;
+                    line-height: 1.5em;
+                    border-bottom: 2px solid darken($gray, 10%);
+                    &:hover {
+                        text-decoration: none;
+                        border-bottom: 2px solid darken($gray, 30%);
+                    }
+                }
+                #your_score {
+                    color: darken($red, 10%);
+                    font-size: 28px;
+                }
+            }
         }
     }
+}
+
+div#screen0 {
 }
 
 div.btn-group-vertical {
@@ -115,15 +152,13 @@ div.btn-group-vertical {
     color: white;
     font-family: 'Helvetica Neue';
     button.btn {
+        margin: 0;
         font-weight: 300;
         height: 44px;
         color: white;
         font-size: 22px;
         border-radius: 0 !important;
-        border-left: none;
-        border-right: none;
-        border: none;
-        //background: lighten($gray, 60%);
+        border: none !important;
         background: $purple;
         &:first-child {
             background: $orange;
@@ -136,9 +171,13 @@ div.btn-group-vertical {
             width: 100%;
         }
     }
+    @media (max-height: 400px) {
+        padding-bottom: 50px;
+    }
 }
 
 #questions {
+    height: 100%;
     position: absolute;
     top: 0;
 }

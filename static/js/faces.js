@@ -17,7 +17,10 @@ $(document).ready( function() {
         return array;
     }
 
-    var data = JSON.parse($("#data").html());
+    facesJson = JSON.parse($("#data").html());
+    var data = facesJson[0].faces;
+    var maleAnswers = shuffleArray(facesJson[0].maleAnswers);
+    var femaleAnswers = shuffleArray(facesJson[0].femaleAnswers);
 
     $('#play_game').on('click', function(e) {
         var landingScreen = $(this).parents('#landing_screen');
@@ -31,8 +34,18 @@ $(document).ready( function() {
     $('button.answer').on('click', function(e) {
         var screen = $(this).parents('div.screen');
         screen.addClass("inactive");
+
+        var audio = $('div#screen0').find('audio');
+        audio.get(0).pause();
+
+        $('div#screen0').find('span.glyphicon').transition({x: '100px'})
+            .transition({x: '0px', delay: 500});
+
         var nextScreen = screen.next();
         nextScreen.attr("class", "screen active");
+
+        var nextAudio = nextScreen.find('audio').attr('src');
+        audio.attr('src', nextAudio);
 
         var correctAnswer = $(this).parent().children('.correct').children(),
             incorrectAnswers = $(this).parent().children(':not(.correct)').children();
@@ -49,38 +62,76 @@ $(document).ready( function() {
         if (!nextScreen.attr('id')) {
             var height = $('div.image-frame').outerHeight() + $('div.btn-group-vertical').outerHeight();
             $('#questions').transition({y: -height}, 1000, 'snap');
+            $('#scoreboard').css("display", "block");
+            $('#your_score').text(facesMadeForRadio);
         }
 
     });
 
     var questionList = $('div#questions').children();
 
+    var faces = [],
+        localArray = [],
+        nationalArray = [];
+
     for (var i=0; i<data.length; i++) {
+        if (data[i].difficulty == 'easy') {
+            faces.push(data[i]);
+        } else if (data[i].local == 'True') {
+            localArray.push(data[i]);
+        } else {
+            nationalArray.push(data[i]);
+        }
+    }
+
+    // Grab half of local faces, consider other possibilities for open source
+    var localFaces = shuffleArray(localArray).slice(0, (localArray.length / 2));
+    for (var j=0; j<localFaces.length; j++) {
+        faces.push(localFaces[j]);
+    }
+
+    var nationalFaces = shuffleArray(nationalArray).slice(0, (10 - faces.length));
+    for (j=0; j<nationalFaces.length; j++) {
+        faces.push(nationalFaces[j]);
+    }
+
+    faces = shuffleArray(faces);
+    for (i=0; i<faces.length; i++) {
+        var answerList;
         var img= questionList.eq(i)
-            .children('div.image-frame').eq(0).children('img');
-        var audio = questionList.eq(i).children('p.audio-p').children('audio');
+            .children('div.image-frame').children('img');
+        var audio = questionList.eq(i).find('audio');
         var buttonList = questionList.eq(i).children('.btn-group-vertical')
             .children('button');
-        var answerList = shuffleArray(data[i].answers).slice(0,2);
-        answerList.push(data[i].name);
+        if (faces[i].sex == 'f') {
+            answerList = femaleAnswers.splice(0,2);
+        } else if (faces[i].name == 'Click & Clack') {
+            answerList = ['Simon & Garfunkle', 'Bert & Ernie'];
+        } else {
+            answerList = maleAnswers.splice(0,2);
+        }
+        answerList.push(faces[i].name);
         var answers = shuffleArray(answerList);
 
 
-        for (var j=0; j<buttonList.length; j++) {
+        for (j=0; j<buttonList.length; j++) {
             buttonList.eq(j).html("<div>" + toTitleCase(answers[j]) + "</div>");
-            if (answers[j] == data[i].name) {
+            if (answers[j] == faces[i].name) {
                 var correctAnswer = buttonList.eq(j).attr('class');
                 buttonList.eq(j).attr('class', correctAnswer + ' correct');
             }
         }
 
 
-        img.attr('src', data[i].img);
-        audio.attr('src', data[i].mp3);
+        img.attr('src', faces[i].img);
+        audio.attr('src', faces[i].mp3);
     }
 
     $('button.correct').on('click', function(e) {
         facesMadeForRadio += 10;
+        if (facesMadeForRadio > 100) {
+            facesMadeForRadio = 0;
+        }
         $('p#score').text(facesMadeForRadio);
     });
 

@@ -18,7 +18,7 @@
 {% for color in ['green2', 'orange', 'red', 'blue', 'green', 'green2', 'orange', 'red', 'blue', 'green'] %}
     <div class="screen inactive" id="screen{{ loop.index0 }}">
         <div class="row image-frame">
-            <img class="img-responsive col-xs-10" src="{{ url_for('static', filename='img/faces/click_clack_m.jpg') }}">
+            <img class="img-responsive col-xs-10" src="{{ url_for('static', filename='img/faces/click_clack_mne.jpg') }}">
             <div class="score-bar col-xs-2">
                 <p>Score</p>
                 <p id="score">00</p>
@@ -37,7 +37,17 @@
             <button type="button" class="answer btn btn-default">Click &amp; Clack</button>
             <button type="button" class="answer btn btn-default">Simon &amp; Garfunkle</button>
         </div>
-        <div class="camels_hump"></div>
+        <div class="camels_hump">
+            <div id="scoreboard">
+                <h2>Thanks for playing!</h2>
+                <div id="score">
+                    <p>Your Score: <span id="your_score"></span></p>
+                    
+                    <p><a href="http://www.twitter.com/">Share your score on Twitter</a></p>
+                    <p><a href="http://www.facebook.com/">Tell your friends on Facebook</a></p>
+                </div>
+            </div>
+        </div>
     </div>
 {% endfor %}
 </div>

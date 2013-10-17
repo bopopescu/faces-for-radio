@@ -4,8 +4,18 @@ import os
 import Image
 import ImageOps
 
-male_answers = ['Bill Clinton', 'Pierce Brosnan', 'Ira Glass', 'Jose Canseco']
-female_answers = ['Barbera Walters', 'Nina Keck', 'Charlotte Albright', 'Dina Temple Whoever']
+male_answers = ['Anthony Bourdain', 'Pierce Brosnan', 'Wolf Blitzer',
+    'Jose Canseco', 'Matt Parrilla', 'Richard Phillips', 'Peter Jackson',
+    'James Kumarasamy', 'Al Michaels', 'Frank Deford', 'Edward R. Murrow',
+    'Peter Shumlin', 'Shap Smith', 'Jim Douglas', 'John Boehner', 'Harry Reid',
+    'Jon Stewart', 'Brian Williams', 'Andy Rooney', 'Mike Wallace', 'Dan Rather',
+    'Stephen Colbert', 'Patrick Leahy', 'Peter Welch', 'Bernard Sanders',
+    'Sean Hannity']
+
+female_answers = ['Barbera Walters', 'Nina Keck', 'Charlotte Albright',
+    'Dina Temple Raston', 'Audie Cornish', 'Robin Young', 'Sylvia Poggioli',
+    'Soraya Sarhaddi Nelson', 'Nancy Pelosi', 'Hillary Clinton',
+    'Rachel Maddow', 'Megyn Kelly', 'Samantha Bee']
 
 
 def generate_json():
@@ -14,26 +24,38 @@ def generate_json():
     for face in face_list:
         json_dict = {}
         filename = os.path.split(face)[1]
-        name = os.path.splitext(filename)[0][:-2]
-        sex = os.path.splitext(filename)[0][-1].lower()
+        f = os.path.splitext(filename)[0]
+        name = f[:-4]
+        meta = f[-3:].lower()
+        sex = meta[0]
+        local = meta[1]
+        difficulty = meta[2]
+
         json_dict['name'] = name.replace('_', ' ')
         json_dict['img'] = face
         json_dict['mp3'] = ('static/mp3/' + name + '.mp3')
         json_dict['sex'] = sex
-        if sex == 'm':
-            json_dict['answers'] = male_answers
-        elif sex == 'f':
-            json_dict['answers'] = female_answers
-        else:
-            json_dict['answers'] = ['FAIL', 'FAIL', 'FAIL']
 
         if name == 'click_clack':
             json_dict['name'] = 'Click & Clack'
             json_dict['answers'] = ['Bert & Ernie', 'Harold & Kumar',
                 'Simon & Garfunkle']
 
+        if local == 'l':
+            json_dict['local'] = 'True'
+        else:
+            json_dict['local'] = 'False'
+
+        if difficulty == 'e':
+            json_dict['difficulty'] = 'easy'
+        else:
+            json_dict['difficulty'] = 'hard'
+
         json_list.append(json_dict)
-    json_faces = json.dumps(json_list)
+
+    faces_dict = [{'faces': json_list, 'maleAnswers': male_answers,
+        'femaleAnswers': female_answers}]
+    json_faces = json.dumps(faces_dict)
     return json_faces
 
 
