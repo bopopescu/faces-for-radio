@@ -10,7 +10,6 @@ $purple: #9724e0;
 body, html, div.container, div.screen, div#questions {
     height: 100%;
     width: 100%;
-    //overflow: hidden;
     font-family: 'Krona One';
     background: lighten($green, 5%);
 }
@@ -20,6 +19,7 @@ div.container {
 }
 
 body, html {
+    overflow: hidden;
 }
 
 #landing_screen {
@@ -55,7 +55,7 @@ audio {
 div.screen {
     height: 100%;
     padding: 0 0 10%;
-    position: static;
+    position: absolute;
     top: 0;
     img.img-responsive {
         padding: 0;
@@ -110,6 +110,7 @@ div.screen {
 }
 
 div.btn-group-vertical {
+    background: $blue;
     width: 100%;
     color: white;
     font-family: 'Helvetica Neue';
@@ -142,24 +143,3 @@ div.btn-group-vertical {
     top: 0;
     left: 100%;
 }
-/*
-.green2_screen {
-    background: $green2;
-}
-
-.orange_screen {
-    background: $orange;
-}
-
-.red_screen {
-    background: $red;
-}
-
-.blue_screen {
-    background: $blue;
-}
-
-.green_screen {
-    background: $green;
-}
-*/

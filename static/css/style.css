@@ -7,6 +7,9 @@ body, html, div.container, div.screen, div#questions {
 div.container {
   padding: 0; }
 
+body, html {
+  overflow: hidden; }
+
 #landing_screen {
   z-index: 10;
   background: #5ab235; }
@@ -33,7 +36,7 @@ div.container {
 div.screen {
   height: 100%;
   padding: 0 0 10%;
-  position: static;
+  position: absolute;
   top: 0; }
   div.screen img.img-responsive {
     padding: 0;
@@ -76,6 +79,7 @@ div.screen {
       background: #307fe2; } }
 
 div.btn-group-vertical {
+  background: #307fe2;
   width: 100%;
   color: white;
   font-family: 'Helvetica Neue'; }
@@ -101,25 +105,3 @@ div.btn-group-vertical {
   position: absolute;
   top: 0;
   left: 100%; }
-
-/*
-.green2_screen {
-    background: $green2;
-}
-
-.orange_screen {
-    background: $orange;
-}
-
-.red_screen {
-    background: $red;
-}
-
-.blue_screen {
-    background: $blue;
-}
-
-.green_screen {
-    background: $green;
-}
-*/

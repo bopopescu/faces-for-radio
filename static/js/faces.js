@@ -46,12 +46,9 @@ $(document).ready( function() {
         activeScreen.children('.btn-group-vertical')
             .transition({x: '-100%', delay: 600});
 
-        console.log(activeScreen.attr('id'));
         if (!activeScreen.attr('id')) {
-            console.log($('div.btn-group-vertical'));
-            $('div.image-frame').transition({y: '-100%'});
-            $('div.btn-group-vertical').transition({y: '-400%'});
-            $('div.camels_hump').transition({y: '-43%'});
+            var height = $('div.image-frame').outerHeight() + $('div.btn-group-vertical').outerHeight();
+            $('#questions').transition({y: -height}, 1000, 'snap');
         }
 
     });
