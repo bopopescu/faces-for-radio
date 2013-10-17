@@ -30,29 +30,25 @@ $(document).ready( function() {
 
     $('button.answer').on('click', function(e) {
         var screen = $(this).parents('div.screen');
-        screen.addClass("inactive");
+        screen.attr("class", "screen inactive");
         var activeScreen = screen.next();
         activeScreen.attr("class", "screen active");
 
-        var correctAnswer = $(this).parent().children('.correct').children(),
-            incorrectAnswers = $(this).parent().children(':not(.correct)').children(),
+        var correctAnswer = $(this).parent().children('.correct');
+        var incorrectAnswers = correctAnswer.siblings();
+        incorrectAnswers.children().transition({x: '-100%'}, 500, 'snap');
+        correctAnswer.children().transition({
+            x: '-100%', delay: 500 }, 500, 'snap');
 
-        incorrectAnswers.transition({x: '-100%'}, 500, 'snap');
-        correctAnswer.transition({x: '-100%', delay: 500}, 500, 'snap');
+        activeScreen.children('div.image-frame')
+            .children('img').transition({x: '-120%', delay: 500});
 
-        activeScreen.children('div.image-frame img').transition({x: '-120%', delay: 500});
-        activeScreen.children('.btn-group-vertical').transition({x: '-100%', delay: 600});
+        activeScreen.children('.btn-group-vertical')
+            .transition({x: '-100%', delay: 600});
 
-        // console.log(activeScreen.attr('id'));
         if (!activeScreen.attr('id')) {
-            // console.log($('div.btn-group-vertical'));
-            // $('div.image-frame').transition({y: '-100%'}, 1000, 'snap');
-            // $('div.btn-group-vertical').transition({y: '-400%'}, 1000, 'snap');
-            // $('div.image-frame').css('display', 'none');
-            // $('div.btn-group-vertical').css('display', 'none');
-
-            $('div.image-frame').outerHeight() + $('div.btn-group-vertical').outerHeight();
-            $('#questions').transition({y: -height}, 1000 'snap');
+            var height = $('div.image-frame').outerHeight() + $('div.btn-group-vertical').outerHeight();
+            $('#questions').transition({y: -height}, 1000, 'snap');
         }
 
     });
@@ -78,6 +74,7 @@ $(document).ready( function() {
             }
         }
 
+
         img.attr('src', data[i].img);
         audio.attr('src', data[i].mp3);
     }
@@ -93,3 +90,4 @@ $(document).ready( function() {
     });
 
 });
+
