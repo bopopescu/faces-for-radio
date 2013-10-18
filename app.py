@@ -14,17 +14,23 @@ app.config['FREEZER_BASE_URL'] = 'http://www.vpr.net/apps/faces'
 # If project doesn't have it's own domain/subdomain, use BASE_URL
 #app.config['FREEZER_BASE_URL'] = 'http://www.example.com/not_base'
 
+social = {
+    'title': "VPR's Faces Made For Radio",
+    'img': 'static/img/faces_social_share.png',
+    'description': 'How well do you know your favorite VPR personalities? Take this quiz matching the voices you always hear to the faces you seldom see!'
+}
+
 
 @app.route('/')
 def index():
     data = generate_json()
-    return render_template('content.html', data=data)
+    return render_template('content.html', data=data, social=social)
 
 
 @app.route('/play')
 def play():
     data = generate_json()
-    return render_template('content.html', data=data)
+    return render_template('content.html', data=data, social=social)
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'build':

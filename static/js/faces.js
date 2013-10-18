@@ -50,7 +50,7 @@ $(document).ready( function() {
             incorrectAnswers = $(this).parent().children(':not(.correct)').children();
         incorrectAnswers.transition({x: '-100%'}, 500, 'snap');
         correctAnswer.transition({
-            x: '-100%', delay: 500 }, 500, 'snap');
+            x: '-100%', delay: 1000 }, 500, 'snap');
 
         nextScreen.children('div.image-frame').children('img')
             .transition({x: '-120%', delay: 500});
@@ -63,6 +63,10 @@ $(document).ready( function() {
             $('#questions').transition({y: -height}, 1000, 'snap');
             $('#scoreboard').css("display", "block");
             $('#your_score').text(facesMadeForRadio);
+            $('meta#fb_description').attr('content', "I scored " + facesMadeForRadio +
+                " on VPR's 'Faces Made For Radio' quiz. How well do you know the faces behind the voices of Vermont Public Radio?");
+            $('meta#tw_description').attr('content', "I just scored " + facesMadeForRadio + 
+                " on VPR's #FacesMadeForRadio. How well do you know the faces behidn the voices of @vprnet ? http://bit.ly/1aVt3bD");
         }
 
     });
