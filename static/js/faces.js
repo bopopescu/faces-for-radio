@@ -33,7 +33,6 @@ $(document).ready( function() {
 
     $('button.answer').on('click', function(e) {
         var screen = $(this).parents('div.screen');
-        screen.addClass("inactive");
 
         var audio = $('div#screen0').find('audio');
         audio.get(0).pause();

@@ -1,16 +1,19 @@
-body, html, div.container, div.screen, div#questions {
+body, html, div.container, div.screen {
   height: 100%;
   width: 100%;
-  font-family: 'Krona One';
-  background: #5ab235; }
+  font-family: 'Krona One'; }
 
 div.container {
   padding: 0;
   background: none;
-  height: inherit; }
+  height: inherit;
+  margin: 0 auto;
+  max-width: 600px;
+  position: relative; }
 
 body, html, div.container {
-  overflow: hidden; }
+  overflow: hidden;
+  background: black; }
 
 #landing_screen {
   z-index: 10;
@@ -34,6 +37,12 @@ body, html, div.container {
     margin: 0; }
   #landing_screen .btn {
     margin-top: 50px; }
+
+div.inactive {
+  display: none; }
+
+div#screen0 {
+  display: block; }
 
 div.screen {
   height: 100%;
@@ -133,9 +142,12 @@ div.btn-group-vertical {
       padding-bottom: 50px; } }
 
 #questions {
-  height: 100%;
+  height: 200%;
+  width: 100%;
   position: absolute;
-  top: 0; }
+  top: 0;
+  overflow: hidden;
+  background: #5ab235; }
 
 #questions div.screen {
   position: absolute;

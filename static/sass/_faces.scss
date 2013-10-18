@@ -7,21 +7,24 @@ $gray: #75787b;
 $blue: #307fe2;
 $purple: #9724e0;
 
-body, html, div.container, div.screen, div#questions {
+body, html, div.container, div.screen, {
     height: 100%;
     width: 100%;
     font-family: 'Krona One';
-    background: lighten($green, 5%);
 }
 
 div.container {
     padding: 0;
     background: none;
     height: inherit;
+    margin: 0 auto;
+    max-width: 600px;
+    position: relative;
 }
 
 body, html, div.container {
     overflow: hidden;
+    background: black;
 }
 
 #landing_screen {
@@ -51,8 +54,14 @@ body, html, div.container {
     }
 }
 
-audio {
+div.inactive {
+    display: none;
 }
+
+div#screen0 {
+    display: block;
+}
+
 
 div.screen {
     height: 100%;
@@ -177,9 +186,12 @@ div.btn-group-vertical {
 }
 
 #questions {
-    height: 100%;
+    height: 200%;
+    width: 100%;
     position: absolute;
     top: 0;
+    overflow: hidden;
+    background: lighten($green, 5%);
 }
 
 #questions div.screen {

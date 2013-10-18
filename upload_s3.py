@@ -12,9 +12,10 @@ from settings import AWS_KEY, AWS_SECRET_KEY, AWS_BUCKET, AWS_DIRECTORY
 STATIC_EXPIRES = 60 * 24 * 3600
 HTML_EXPIRES = 3600
 
-IGNORE_DIRECTORIES = ['.git', 'venv', 'sass', 'templates']
+IGNORE_DIRECTORIES = ['.git', 'venv', 'sass', 'templates', 'static/img',
+    'static/mp3']
 IGNORE_FILES = ['.DS_Store']
-IGNORE_FILE_TYPES = ['.gz', '.pyc', '.py', '.rb', '.md']
+IGNORE_FILE_TYPES = ['.gz', '.pyc', '.py', '.rb', '.md', '.mp3', '.jpg']
 
 content_types = {
     '.css': 'text/css',
