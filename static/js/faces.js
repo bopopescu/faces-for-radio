@@ -34,6 +34,14 @@ $(document).ready( function() {
     $('button.answer').on('click', function(e) {
         var screen = $(this).parents('div.screen');
 
+        if ($(this).attr("class").indexOf('correct') != -1) {
+            facesMadeForRadio +=10;
+            if (facesMadeForRadio > 100) {
+                facesMadeForRadio = 0;
+            }
+            $('p#score').text(facesMadeForRadio);
+        }
+
         var audio = $('div#screen0').find('audio');
         audio.get(0).pause();
 
@@ -130,13 +138,6 @@ $(document).ready( function() {
         audio.attr('src', faces[i].mp3);
     }
 
-    $('button.correct').on('click', function(e) {
-        facesMadeForRadio += 10;
-        if (facesMadeForRadio > 100) {
-            facesMadeForRadio = 0;
-        }
-        $('p#score').text(facesMadeForRadio);
-    });
 
     $('span.glyphicon').on('click', function(e) {
         facesMadeForRadio += -2;
