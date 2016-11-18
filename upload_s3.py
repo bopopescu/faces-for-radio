@@ -5,7 +5,7 @@ import hashlib
 import gzip
 import time
 from sys import argv
-from boto.s3.connection import S3Connection
+from boto.s3.connection import S3Connection, OrdinaryCallingFormat
 from boto.s3.key import Key
 from settings import AWS_KEY, AWS_SECRET_KEY, AWS_BUCKET, AWS_DIRECTORY
 
@@ -82,7 +82,7 @@ def set_metadata():
     at the beginning of the file. HTML expires after 1 hour."""
 
     s3_list = s3_filename()
-    conn = S3Connection(AWS_KEY, AWS_SECRET_KEY)
+    conn = S3Connection(AWS_KEY, AWS_SECRET_KEY,calling_format=OrdinaryCallingFormat())
     mybucket = conn.get_bucket(AWS_BUCKET)
     expires = time.time() + STATIC_EXPIRES
     expires_header = time.strftime("%a, %d-%b-%Y %T GMT", time.gmtime(expires))

@@ -1,8 +1,8 @@
 import json
 import glob
 import os
-import Image
-import ImageOps
+from PIL import Image
+from PIL import ImageOps
 
 male_answers = ['Anthony Bourdain', 'Pierce Brosnan', 'Wolf Blitzer',
     'Jose Canseco', 'Matt Parrilla', 'Richard Phillips', 'Peter Jackson',
